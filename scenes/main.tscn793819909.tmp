@@ -27,7 +27,6 @@ color = Color(0, 0, 0, 1)
 [node name="Left" type="Area2D" parent="."]
 position = Vector2(120, 540)
 script = ExtResource("2_jyhfs")
-movement_speed = 200
 
 [node name="Player1" type="Sprite2D" parent="Left"]
 scale = Vector2(0.15, 0.337)
