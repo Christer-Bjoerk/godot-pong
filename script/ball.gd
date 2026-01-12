@@ -11,3 +11,8 @@ var direction = Vector2.LEFT
 func _process(delta: float) -> void:
 	speed += delta * 2
 	position += speed * delta * direction
+	
+func reset():
+	direction = Vector2.LEFT
+	position = start_pos
+	speed = default_speed
