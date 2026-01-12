@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ceu771rqxpk0b"]
+[gd_scene load_steps=15 format=3 uid="uid://ceu771rqxpk0b"]
 
 [ext_resource type="Texture2D" uid="uid://cl246oxi0sqft" path="res://assets/sprite/player1.png" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://mndgd3iin5lq" path="res://assets/sprite/Seperator.png" id="1_o5qli"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bnasdn4ayalj4" path="res://script/player2.gd" id="3_tipki"]
 [ext_resource type="Texture2D" uid="uid://cmw6pon33xo46" path="res://assets/sprite/pong_ball.png" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://q22n5lejwutn" path="res://script/wall.gd" id="5_tefeu"]
+[ext_resource type="Script" uid="uid://dl0jr581jow33" path="res://script/ceiling_floor.gd" id="7_85g3d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
 size = Vector2(20, 90)
@@ -70,6 +71,7 @@ texture = ExtResource("5_tbgi4")
 shape = SubResource("CircleShape2D_tbgi4")
 
 [node name="Ceiling" type="Area2D" parent="."]
+script = ExtResource("7_85g3d")
 
 [node name="CeilingCollision" type="CollisionShape2D" parent="Ceiling"]
 position = Vector2(958.5, -70)
@@ -90,6 +92,8 @@ position = Vector2(1987, 539.375)
 shape = SubResource("RectangleShape2D_0wfyh")
 
 [node name="Ground" type="Area2D" parent="."]
+script = ExtResource("7_85g3d")
+bounce_direction = -1
 
 [node name="GroundCollision" type="CollisionShape2D" parent="Ground"]
 position = Vector2(959, 1146)
@@ -101,4 +105,8 @@ position = Vector2(960, 539)
 scale = Vector2(1, 4.21875)
 texture = ExtResource("1_o5qli")
 
+[connection signal="area_entered" from="Left" to="Left" method="_on_area_entered"]
+[connection signal="area_entered" from="Right" to="Right" method="_on_area_entered"]
+[connection signal="area_entered" from="Ceiling" to="Ceiling" method="_on_area_entered"]
 [connection signal="area_entered" from="LeftWall" to="LeftWall" method="_on_wall_area_entered"]
+[connection signal="area_entered" from="Ground" to="Ground" method="_on_area_entered"]

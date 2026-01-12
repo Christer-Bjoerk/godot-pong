@@ -13,15 +13,15 @@ var max_screen_boundary = 50
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var n = String(name).to_lower()
-	up = n + "up_wasd"
-	down = n + "down_wasd"
+	up = n + "up_arrow"
+	down = n + "down_arrow"
 	
-	ball_dir = 1
+	ball_dir = -1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var input = Input.get_action_strength("down_wasd") - Input.get_action_strength("up_wasd")
+	var input = Input.get_action_strength("down_arrow") - Input.get_action_strength("up_arrow")
 	position.y = clamp(position.y + input * movement_speed * delta, min_screen_boundary, screen_size_y - max_screen_boundary)
 
 
