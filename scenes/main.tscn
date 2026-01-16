@@ -51,6 +51,7 @@ script = ExtResource("3_tipki")
 movement_speed = 200
 
 [node name="Player2" type="Sprite2D" parent="Right"]
+texture_filter = 1
 scale = Vector2(0.15, 0.337)
 texture = ExtResource("2_sugp2")
 
@@ -63,6 +64,7 @@ position = Vector2(960, 539)
 script = ExtResource("3_tbgi4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ball"]
+texture_filter = 1
 position = Vector2(-7.6293945e-06, 1.0000038)
 scale = Vector2(4, 4)
 texture = ExtResource("5_tbgi4")
@@ -86,6 +88,7 @@ position = Vector2(-64, 543.75)
 shape = SubResource("RectangleShape2D_o5qli")
 
 [node name="RightWall" type="Area2D" parent="."]
+script = ExtResource("5_tefeu")
 
 [node name="RightWallCollision" type="CollisionShape2D" parent="RightWall"]
 position = Vector2(1987, 539.375)
@@ -108,5 +111,6 @@ texture = ExtResource("1_o5qli")
 [connection signal="area_entered" from="Left" to="Left" method="_on_area_entered"]
 [connection signal="area_entered" from="Right" to="Right" method="_on_area_entered"]
 [connection signal="area_entered" from="Ceiling" to="Ceiling" method="_on_area_entered"]
-[connection signal="area_entered" from="LeftWall" to="LeftWall" method="_on_wall_area_entered"]
+[connection signal="area_entered" from="LeftWall" to="LeftWall" method="_on_area_entered"]
+[connection signal="area_entered" from="RightWall" to="RightWall" method="_on_area_entered"]
 [connection signal="area_entered" from="Ground" to="Ground" method="_on_area_entered"]
