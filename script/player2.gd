@@ -1,12 +1,12 @@
 extends Area2D
 
-@export var movement_speed = 100
+@export var movement_speed = 1000
 
 var ball_dir
 var up
 var down
-var min_screen_boundary = 50
-var max_screen_boundary = 50
+var min_screen_boundary = 100
+var max_screen_boundary = 100
 
 @onready var screen_size_y = get_viewport_rect().size.y
 
